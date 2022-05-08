@@ -4,6 +4,8 @@
 
 Simple Chat app using Socket.io. Messages are save in MongoDB. Client side was made with Vue 3 Javascript framework.abnf
 
+![app preview](https://github.com/geralt1002/Simple-Vue-Chat/blob/main/chatapp-screen.png)
+
 ## Functionalities
 
 - Add user
