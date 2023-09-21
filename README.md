@@ -1,6 +1,6 @@
-# Notes-app
+# Chat-app
 
-### [Live](https://simple-vue-chat-app.herokuapp.com/)
+### [Live](https://chat-app-lh2l.onrender.com/)
 
 Simple Chat app using Socket.io. Messages are save in MongoDB. Client side was made with Vue 3 Javascript framework.abnf
 
