@@ -10,6 +10,7 @@ client\dist
 
 
 # local env files
+server/.env
 .env.local
 .env.*.local
 

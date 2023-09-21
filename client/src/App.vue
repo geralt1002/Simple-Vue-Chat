@@ -60,7 +60,8 @@ export default {
     ChatBoxComponent,
   },
   setup() {
-    const socket = io('http://192.168.0.30:3000')
+    const socket = io('/')
+    // const socket = io('http://localhost:3000') - for localhost
     const users = ref([])
     const messages = ref([])
     const message = ref('')

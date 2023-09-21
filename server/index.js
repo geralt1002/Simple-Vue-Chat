@@ -5,29 +5,34 @@ import express, { json, urlencoded } from 'express'
 import { createServer } from 'http'
 import { Server } from 'socket.io'
 
-const app = express()
-const port = 3000
-
-const server = createServer(app)
-
+import cors from 'cors'
 import logger from 'morgan'
 import dateFormat from 'dateformat'
-
-const now = new Date()
+import dotenv from 'dotenv'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const io = new Server(server, {
-  cors: {
-    origin: 'http://localhost:8080',
-    // origin: 'http://YOUR_HOST_IP:8080',
-  },
-})
+dotenv.config({ path: `${__dirname}/.env` })
 
+const app = express()
+const port = process.env.PORT || 3000
+
+const server = createServer(app)
+
+const now = new Date()
+
+app.use(cors())
 app.use(logger('dev'))
 app.use(json())
 app.use(urlencoded({ extended: false }))
+
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  },
+})
 
 import './config/mongo.js'
 

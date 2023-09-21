@@ -1,7 +1,19 @@
 import mongoose from 'mongoose'
 import config from './index.js'
 
-const CONNECTION_URL = `mongodb://${config.db.url}/${config.db.name}`
+import dotenv from 'dotenv'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+dotenv.config({ path: `${__dirname}/../.env` })
+
+const CONNECTION_URL =
+  process.env.MONGODB_URI || `mongodb://${config.db.url}/${config.db.name}`
+
+mongoose.set('strictQuery', false)
 
 mongoose.connect(CONNECTION_URL)
 
