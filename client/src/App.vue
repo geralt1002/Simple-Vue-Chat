@@ -60,7 +60,9 @@ export default {
     ChatBoxComponent,
   },
   setup() {
-    const socket = io('/')
+    const socket = io('/', {
+      withCredentials: true,
+    })
 
     // if you want to run locally, please remove comment below
 

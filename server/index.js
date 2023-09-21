@@ -16,9 +16,10 @@ const __dirname = path.dirname(__filename)
 dotenv.config({ path: `${__dirname}/.env` })
 
 const app = express()
-const port = process.env.PORT || 3000
 
 const server = createServer(app)
+
+const port = process.env.PORT || 3000
 
 const now = new Date()
 
@@ -30,11 +31,10 @@ app.use(urlencoded({ extended: false }))
 const io = new Server(server, {
   cors: {
     origin: 'http://localhost:3000',
-
+    credentials: true,
     // if you want to run locally, please remove comment below
 
     // origin: 'http://localhost:8080',
-    credentials: true,
   },
 })
 

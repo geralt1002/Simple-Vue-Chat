@@ -10,8 +10,10 @@ const __dirname = path.dirname(__filename)
 
 dotenv.config({ path: `${__dirname}/../.env` })
 
-const CONNECTION_URL =
-  process.env.MONGODB_URI || `mongodb://${config.db.url}/${config.db.name}`
+const CONNECTION_URL = process.env.MONGODB_URI
+
+// if you want to run locally, please remove comment below
+// const CONNECTION_URL = `mongodb://${config.db.url}/${config.db.name}`
 
 mongoose.set('strictQuery', false)
 
